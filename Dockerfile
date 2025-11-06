@@ -16,9 +16,12 @@ RUN apt-get update && apt-get install -y curl && \
     https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Expose port (for Railway)
+# Railway assigns a dynamic PORT value (not always 8080)
 ENV PORT=8080
 EXPOSE ${PORT}
+
+# Update Tomcat server.xml to listen on the assigned Railway port
+RUN sed -i 's/port="8080"/port="${PORT}"/' /usr/local/tomcat/conf/server.xml
 
 # Start Tomcat
 CMD ["catalina.sh", "run"]
