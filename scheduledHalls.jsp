@@ -373,7 +373,7 @@
             if (staffId != null) {
                 try {
                     Class.forName("com.mysql.cj.jdbc.Driver");
-                    Connection con = DriverManager.getConnection("jdbc:mysql://bvqquajoqrmlplsx6gws-mysql.services.clever-cloud.com:3306/bvqquajoqrmlplsx6gws?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC", "ut9u0nb9cnmpbzcb", "wRobtIadyKkhM2S97jzM");
+                    Connection con = DriverManager.getConnection("jdbc:mysql://centerbeam.proxy.rlwy.net:14300/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC", "root","jFOMsIFGmTYlWtzKZmUmxuKUTJeJhtwm");
 
                     String query = "SELECT h.hall_name, h.department, b.booking_date, b.period, b.purpose " +
                                    "FROM bookings b JOIN halls h ON b.hall_id = h.hall_id " +

@@ -21,7 +21,7 @@ public class LoginServlet extends HttpServlet {
             // Load JDBC Driver and Connect
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://bvqquajoqrmlplsx6gws-mysql.services.clever-cloud.com:3306/bvqquajoqrmlplsx6gws?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC", "ut9u0nb9cnmpbzcb", "wRobtIadyKkhM2S97jzM");
+                    "jdbc:mysql://centerbeam.proxy.rlwy.net:14300/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC", "root","jFOMsIFGmTYlWtzKZmUmxuKUTJeJhtwm");
 
             PreparedStatement pst = con.prepareStatement(
                     "SELECT * FROM staff WHERE email = ? AND password = ?");
