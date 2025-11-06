@@ -1,7 +1,7 @@
 # Use Tomcat 10.1 with JDK 17
 FROM tomcat:10.1-jdk17-temurin
 
-# Remove default Tomcat webapps
+# Remove default webapps
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copy your JSP project directly into ROOT
@@ -16,12 +16,11 @@ RUN apt-get update && apt-get install -y curl && \
     https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Railway assigns a dynamic PORT value (not always 8080)
-ENV PORT=8080
-EXPOSE ${PORT}
+# Expose port 8080
+EXPOSE 8080
 
-# Update Tomcat server.xml to listen on the assigned Railway port
-RUN sed -i 's/port="8080"/port="${PORT}"/' /usr/local/tomcat/conf/server.xml
+# Set Railway PORT environment variable just in case
+ENV PORT=8080
 
 # Start Tomcat
 CMD ["catalina.sh", "run"]
