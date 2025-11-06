@@ -145,7 +145,7 @@
     if (bookingDate != null && dept != null && hallName != null && staffId != null) {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://mysql-production-9b93.up.railway.app:3306/railway?useSSL=true&requireSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC","root","jFOMsIFGmTYlWtzKZmUmxuKUTJeJhtwm");
+            Connection con = DriverManager.getConnection("jdbc:mysql://mysql:3306/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC","root","jFOMsIFGmTYlWtzKZmUmxuKUTJeJhtwm");
 
             int deptIndex = -1;
             if ("CSE".equals(dept)) deptIndex = 0;
