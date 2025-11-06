@@ -24,7 +24,7 @@ public class RegisterServlet extends HttpServlet {
             // Load JDBC Driver and Connect
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection(
-                    "jdbc:mysql://centerbeam.proxy.rlwy.net:14300/railway?useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC", "root","jFOMsIFGmTYlWtzKZmUmxuKUTJeJhtwm");
+                    "jdbc:mysql://mysql-production-9b93.up.railway.app:3306/railway?useSSL=true&requireSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC","root","jFOMsIFGmTYlWtzKZmUmxuKUTJeJhtwm");
 
             // Check if email already exists
             PreparedStatement check = con.prepareStatement("SELECT * FROM staff WHERE email = ?");
