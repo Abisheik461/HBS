@@ -10,13 +10,13 @@ COPY . /usr/local/tomcat/webapps/ROOT/
 # Ensure WEB-INF/lib exists
 RUN mkdir -p /usr/local/tomcat/webapps/ROOT/WEB-INF/lib
 
-# Download MySQL Connector JAR (for JDBC)
+# Download MySQL Connector JAR
 RUN apt-get update && apt-get install -y curl && \
     curl -L -o /usr/local/tomcat/webapps/ROOT/WEB-INF/lib/mysql-connector-j-8.3.0.jar \
     https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.3.0/mysql-connector-j-8.3.0.jar && \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Expose port (Railway-compatible)
+# Expose port (for Railway)
 ENV PORT=8080
 EXPOSE ${PORT}
 
